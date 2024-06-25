@@ -6,13 +6,13 @@ import { useState, useEffect } from "react";
 
 
 export default function App() {
-  const initialFeetback = JSON.parse(localStorage.getItem("feedback")) || {
+  const initialFeedback = JSON.parse(localStorage.getItem("feedback")) || {
     good: 0,
     neutral: 0,
     bad: 0,
   };
 
-  const [feedback, setFeedback] = useState(initialFeetback);
+  const [feedback, setFeedback] = useState(initialFeedback);
 
   useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(feedback));
