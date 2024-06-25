@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export default function Options() {
+export default function Options({ respond, updateFeedback }) {
   const [respond, setRespond] = useState(0);
   const updateFeedback = () => {
     setRespond(respond + 1);
