@@ -1,6 +1,7 @@
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import Feedback from "../Feedback/Feedback";
+import Notification from "../../Notification/Notification";
 import { useState, useEffect } from "react";
 
 export default function App() {
@@ -24,8 +25,8 @@ export default function App() {
   };
 
   const totalFeedback = feedback.good + feedback.neutral + feedback.bad;
-  const positivFeedback = totalFeedback
-    ? Math.round((good / totalFeedback) * 100)
+  const positiveFeedback = totalFeedback
+    ? Math.round((feedback.good / totalFeedback) * 100)
     : 0;
 
   const resetFeedback = () => {
@@ -37,14 +38,17 @@ export default function App() {
       <Options
         updateFeedback={updateFeedback}
         totalFeedback={totalFeedback}
-        positivFeedback={positivFeedback}
         resetFeedback={resetFeedback}
       />
-      <Feedback
-        feedback={feedback}
-        totalFeedback={totalFeedback}
-        positivFeedback={positivFeedback}
-      />
+      {totalFeedback > 0 ? (
+        <Feedback
+          feedback={feedback}
+          totalFeedback={totalFeedback}
+          positiveFeedback={positiveFeedback}
+        />
+      ) : (
+        <Notification message="No feedback yet" />
+      )}
     </div>
   );
 }
