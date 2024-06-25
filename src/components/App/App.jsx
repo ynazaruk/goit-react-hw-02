@@ -4,6 +4,7 @@ import Feedback from "../Feedback/Feedback";
 import Notification from "../../Notification/Notification";
 import { useState, useEffect } from "react";
 
+
 export default function App() {
   const initialFeetback = JSON.parse(localStorage.getItem("feedback")) || {
     good: 0,
@@ -14,7 +15,7 @@ export default function App() {
   const [feedback, setFeedback] = useState(initialFeetback);
 
   useEffect(() => {
-    localStorage.setItem("feedback", JSON.stringify("feedback"));
+    localStorage.setItem("feedback", JSON.stringify(feedback));
   }, [feedback]);
 
   const updateFeedback = (feedbackType) => {
