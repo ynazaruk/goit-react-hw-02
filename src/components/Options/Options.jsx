@@ -1,14 +1,14 @@
-import { useState } from "react";
-
-export default function Options({ respond, updateFeedback }) {
-  const [respond, setRespond] = useState(0);
-  const updateFeedback = () => {
-    setRespond(respond + 1);
-  };
-
+export default function Options({
+  updateFeedback,
+  totalFeedback,
+  resetFeedback,
+}) {
   return (
     <div>
-      <button onClick={updateFeedback}>Good {respond}</button>
+      <button onClick={() => updateFeedback("good")}>Good</button>
+      <button onClick={() => updateFeedback("neutral")}>Neutral</button>
+      <button onClick={() => updateFeedback("bad")}>Bad</button>
+      {totalFeedback > 0 && <button onClick={resetFeedback}>Reset</button>}
     </div>
   );
 }
