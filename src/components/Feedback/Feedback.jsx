@@ -6,9 +6,9 @@ export default function Feedback({
   const { good, neutral, bad } = feedback;
   return (
     <div>
-      <p>Good: {feedback.good}</p>
-      <p>Neutral: {feedback.neutral}</p>
-      <p>Bad: {feedback.bad}</p>
+      <p>Good: {good}</p>
+      <p>Neutral: {neutral}</p>
+      <p>Bad: {bad}</p>
       <p>Total: {totalFeedback}</p>
       <p>Positive: {positiveFeedback}%</p>
     </div>
